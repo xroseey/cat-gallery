@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(
+    45deg,
+    rgba(240, 238, 214, 0.788),
+    rgb(243, 215, 154)
+  );
+  color: rgb(90, 60, 15);
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, sans-serif;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
+  padding: 64px;
+}
+
+h1 {
+  font-size: 96px;
+  margin: 96px;
+  text-align: center;
+}
+
+.gallery {
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.5)
+  );
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  list-style-type: none;
+  padding: 64px;
+}
+
+.thumbnail {
+  border: solid 3px rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 0 48px 2px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin: 32px;
+  max-height: 200px;
+  max-width: 300px;
+  overflow: hidden;
+  transform: scale(1);
+  transition: transform 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.2);
+}
+
+.thumbnail img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.thumbnail img:focus,
+.thumbnail img:focus {
+  border: solid 5px rgb(235, 235, 9);
+}
+
+.popup {
+  align-content: center;
+  animation: fadeIn 0.3s;
+  background: rgb(147, 143, 143, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  position: fixed;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup.fade-out {
+  animation: fadeOut 0.3s both;
+}
+
+.popup__img {
+  max-height: 80%;
+  max-width: 80%;
+}
+
+.popup__close {
+  position: fixed;
+  top: 64px;
+  right: 64px;
+  font-size: 128px;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.popup__arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 128px;
+  height: 128px;
+  width: 128px;
+  border-radius: 50%;
+  line-height: 128px;
+  border: none;
+  cursor: pointer;
+}
+
+.popup__close,
+.popup__arrow {
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.popup__close:hover,
+.popup__arrow:hover {
+  opacity: 1;
+}
+
+.popup__arrow--left {
+  left: 5%;
+}
+.popup__arrow--right {
+  right: 5%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
